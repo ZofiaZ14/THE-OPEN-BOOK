@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Open Book - Street Art WebApp</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #e74c3c;
+            --bg-color: #f4f4f9;
+            --text-color: #333;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        header {
+            background: var(--primary-color);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .intro {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            border-left: 5px solid var(--accent-color);
+        }
+
+        .murales-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-content {
+            padding: 1.5rem;
+        }
+
+        .card h3 {
+            margin-top: 0;
+            color: var(--primary-color);
+            border-bottom: 2px solid #eee;
+            padding-bottom: 0.5rem;
+        }
+
+        .tag {
+            display: inline-block;
+            background: #eee;
+            padding: 0.2rem 0.6rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-bottom: 1rem;
+            font-weight: bold;
+            color: var(--accent-color);
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.9rem;
+            color: #777;
+        }
+
+        /* Modal Style */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            max-width: 600px;
+            width: 90%;
+            position: relative;
+        }
+
+        .close-btn {
+            position: absolute;
+            right: 1.5rem;
+            top: 1rem;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>THE OPEN BOOK</h1>
+    <p>Street Art a Scuola: Un percorso di inclusione e creatività</p>
+</header>
+
+<div class="container">
+    <section class="intro">
+        <h2>Il Progetto</h2>
+        <p>L'idea di <strong>"The Open Book"</strong> nasce per rappresentare la scuola come un libro aperto sul mondo, dove ogni pagina racconta storie di crescita, amicizia e consapevolezza[cite: 31, 32].</p>
+    </section>
+
+    <div class="murales-grid">
+        <article class="card" onclick="openModal('Doraemon', 'Simboleggia i primi amori e le prime esperienze dell\'adolescenza. Ci ricorda che la tecnologia non può sostituire l\'impegno e la maturità umana[cite: 3, 55].')">
+            <div class="card-content">
+                <span class="tag">CONSAPEVOLEZZA</span>
+                <h3>Doraemon</h3>
+                <p>Il gatto robot del futuro con gli occhi a cuoricino...</p>
+            </div>
+        </article>
+
+        <article class="card" onclick="openModal('Deadpool', 'Antieroe ironico che per gli adolescenti simboleggia la ribellione alle regole precostituite e la capacità di rompere gli schemi[cite: 68].')">
+            <div class="card-content">
+                <span class="tag">RIBELLIONE</span>
+                <h3>Deadpool</h3>
+                <p>L\'antieroe Marvel che rompe la quarta parete...</p>
+            </div>
+        </article>
+
+        <article class="card" onclick="openModal('Adventure Time', 'Il legame tra Finn e Jake rappresenta la \'famiglia scelta\', fondamentale nell\'adolescenza per scoprire chi si è davvero.')">
+            <div class="card-content">
+                <span class="tag">AMICIZIA</span>
+                <h3>Adventure Time</h3>
+                <p>Finn e Jake nella Terra di Ooo...</p>
+            </div>
+        </article>
+
+        <article class="card" onclick="openModal('Kuromi', 'Rappresenta il desiderio di esprimere la propria personalità contro gli stereotipi: dietro un\'immagine dura si nasconde un lato dolce.')">
+            <div class="card-content">
+                <span class="tag">IDENTITÀ</span>
+                <h3>Kuromi</h3>
+                <p>Look ribelle e sensibilità autentica...</p>
+            </div>
+        </article>
+
+        <article class="card" onclick="openModal('Unione e Pace', 'La stretta di mano che forma un cuore indica che la cooperazione nasce dall\'empatia. Il simbolo della pace è un invito alla convivenza armoniosa[cite: 27, 28].')">
+            <div class="card-content">
+                <span class="tag">VALORI</span>
+                <h3>Unione & Pace</h3>
+                <p>Solidarietà e amore universale come fondamento...</p>
+            </div>
+        </article>
+    </div>
+</div>
+
+<footer>
+    <p>Basato sul progetto "The Open Book" - Ispirato dai lavori degli studenti [cite: 31, 100]</p>
+</footer>
+
+<div id="infoModal" class="modal" onclick="closeModal()">
+    <div class="modal-content" onclick="event.stopPropagation()">
+        <span class="close-btn" onclick="closeModal()">&times;</span>
+        <h2 id="modalTitle"></h2>
+        <p id="modalBody"></p>
+    </div>
+</div>
+
+<script>
+    function openModal(title, text) {
+        document.getElementById('modalTitle').innerText = title;
+        document.getElementById('modalBody').innerText = text;
+        document.getElementById('infoModal').style.display = 'flex';
+    }
+
+    function closeModal() {
+        document.getElementById('infoModal').style.display = 'none';
+    }
+</script>
+
+</body>
+</html>
