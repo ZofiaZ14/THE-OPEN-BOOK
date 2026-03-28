@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Open Book</title>
+    <title>The Open Book - Analisi Iconografica</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -27,7 +27,7 @@
         }
 
         header {
-            padding: 80px 20px;
+            padding: 60px 20px;
             text-align: center;
             background: linear-gradient(to bottom, #f0f4f8, var(--primary-bg));
             border-bottom: 1px solid #eee;
@@ -35,7 +35,7 @@
 
         h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 3rem;
+            font-size: 3.5rem;
             margin: 0;
             color: var(--accent);
         }
@@ -50,28 +50,40 @@
             font-weight: 600;
         }
 
+        /* Stile per l'immagine principale del progetto */
+        .main-project-img {
+            max-width: 800px;
+            width: 90%;
+            height: auto;
+            margin: 30px auto 0;
+            display: block;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border: 5px solid white;
+        }
+
         .container {
             max-width: 1200px;
-            margin: 60px auto;
+            margin: 40px auto;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 40px;
+            gap: 30px;
             padding: 0 20px;
         }
 
         .card {
             background: white;
-            border-radius: 4px;
+            border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
             transition: all 0.3s ease;
             cursor: pointer;
             border: 1px solid #f0f0f0;
         }
 
         .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.1);
         }
 
         .card-image-preview {
@@ -90,7 +102,7 @@
             font-weight: 700;
             text-transform: uppercase;
             padding: 4px 12px;
-            border-radius: 2px;
+            border-radius: 4px;
             display: inline-block;
             margin-bottom: 15px;
         }
@@ -98,10 +110,9 @@
         .card h3 {
             margin: 0 0 10px 0;
             font-family: 'Playfair Display', serif;
-            font-size: 1.4rem;
+            font-size: 1.6rem;
         }
 
-        /* Modal */
         .modal {
             display: none;
             position: fixed;
@@ -112,37 +123,38 @@
         }
 
         .modal-container {
-            max-width: 1000px;
+            max-width: 1100px;
             margin: 60px auto;
             padding: 20px;
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 50px;
-            align-items: start;
+            align-items: center;
         }
 
         @media (max-width: 850px) {
-            .modal-container { grid-template-columns: 1fr; }
+            .modal-container { grid-template-columns: 1fr; padding-top: 80px; }
         }
 
         .modal-image-full {
             width: 100%;
-            border-radius: 4px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-radius: 12px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
         }
 
         .close-btn {
             position: fixed;
-            top: 20px; right: 20px;
-            padding: 10px 25px;
-            background: #fff;
-            border: 1px solid #ddd;
+            top: 25px; right: 25px;
+            padding: 12px 30px;
+            background: var(--accent);
+            color: white;
+            border: none;
             cursor: pointer;
             font-weight: 600;
+            border-radius: 50px;
             z-index: 2100;
         }
 
-        /* Categorie Colori */
         .tag-blue { background: var(--pastel-blue); color: #0d47a1; }
         .tag-red { background: var(--pastel-red); color: #b71c1c; }
         .tag-green { background: var(--pastel-green); color: #1b5e20; }
@@ -151,35 +163,38 @@
 
         footer {
             text-align: center;
-            padding: 60px;
+            padding: 80px;
             border-top: 1px solid #eee;
             color: var(--text-muted);
-            font-size: 0.85rem;
+            font-size: 0.9rem;
+            background: #f9f9f9;
         }
     </style>
 </head>
 <body>
 
 <header>
-    <div class="subtitle">Progetto Scolastico di Street Art</div>
+    <div class="subtitle">Analisi Street Art Scolastica</div>
     <h1>The Open Book</h1>
-    <p>Analisi iconografica e simbolica dei personaggi e dei valori dell'opera.</p>
+    <p>Percorso didattico tra inclusione, simbolismo e crescita personale.</p>
+    
+    <img src="https://github.com/ZofiaZ14/THE-OPEN-BOOK/blob/main/IMG_2817.jpeg?raw=true" alt="Murales The Open Book" class="main-project-img">
 </header>
 
 <div class="container" id="gallery"></div>
 
 <footer>
-    Progetto Didattico Integrato - Analisi dei Linguaggi Visivi Contemporanei
+    Progetto "The Open Book" - Istituto Scolastico - Analisi dei Linguaggi Visivi Contemporanei &copy; 2024
 </footer>
 
 <div id="modal" class="modal">
-    <div class="close-btn" onclick="closeModal()">CHIUDI</div>
+    <button class="close-btn" onclick="closeModal()">CHIUDI</button>
     <div class="modal-container">
         <img id="m-img" class="modal-image-full" src="" alt="">
         <div class="modal-info">
             <div id="m-tag" class="category-tag"></div>
-            <h2 id="m-title" style="font-family: 'Playfair Display', serif; font-size: 2.5rem; margin: 15px 0;"></h2>
-            <p id="m-desc" style="font-size: 1.1rem; color: #444; line-height: 1.8;"></p>
+            <h2 id="m-title"></h2>
+            <p id="m-desc"></p>
         </div>
     </div>
 </div>
@@ -191,42 +206,49 @@
             category: "Consapevolezza",
             tag: "tag-blue",
             img: "https://media-assets.wired.it/photos/615daa8d10023c62ea4761a0/master/w_1600%2Cc_limit/765b31b47db31884ab90e2caeba74673.jpg",
-            desc: "Creato dal duo Fujiko Fujio, Doraemon è un gatto robot del futuro. Nel murales, i suoi occhi a cuoricino simboleggiano i primi amori e la vulnerabilità dell'adolescenza. L'opera suggerisce che la tecnologia (i chiuski) non può sostituire l'impegno personale e la maturità."
+            desc: "Creato dal duo Fujiko Fujio, Doraemon aiuta Nobita con gadget tecnologici chiamati 'chiuski'. Nel murales, i suoi occhi a cuoricino simboleggiano i primi amori adolescenti. L'opera ricorda che la tecnologia è un supporto, ma non può sostituire l'impegno e la maturità umana necessaria per crescere."
         },
         {
             title: "Deadpool",
             category: "Ribellione",
             tag: "tag-red",
             img: "https://miro.medium.com/v2/resize:fit:1200/1*0ubYRV_WNR9iYrzUAVINHw.jpeg",
-            desc: "Creato nel 1991, è un antieroe noto per rompere la 'quarta parete'. All'interno del progetto scolastico, Deadpool rappresenta la ribellione costruttiva alle regole rigide e la capacità critica di guardare oltre le convenzioni sociali attraverso l'ironia."
+            desc: "Antieroe Marvel noto per l'ironia e la rottura della 'quarta parete'. All'interno del progetto, Deadpool rappresenta la sana ribellione alle regole troppo rigide e la capacità critica dell'adolescente di mettere in discussione le convenzioni sociali."
         },
         {
             title: "Adventure Time",
             category: "Amicizia",
             tag: "tag-yellow",
             img: "https://m.media-amazon.com/images/S/pv-target-images/49804f856694464db76c363bc3db3d85a32fa00fbddb6f4898715d4551edf8e6.jpg",
-            desc: "Finn e Jake incarnano il valore della 'famiglia scelta'. Rappresentano la solidarietà e il sostegno reciproco necessari per affrontare le sfide della crescita. L'amicizia viene qui vista come una bussola emotiva fondamentale."
+            desc: "Finn e Jake incarnano il valore della 'famiglia scelta'. In un mondo fantastico ma complesso, il loro legame inscindibile rappresenta la solidarietà e l'amicizia profonda che permette agli studenti di non sentirsi soli nel percorso scolastico."
         },
         {
             title: "Spider-man",
             category: "Metamorfosi",
             tag: "tag-blue",
             img: "https://conversazionisulfumetto.wordpress.com/wp-content/uploads/2012/09/spiderman-300x285.jpg",
-            desc: "Il simbolo del ragno richiama la metamorfosi dell'adolescente. Come Peter Parker, ogni studente affronta un cambiamento che porta nuovi poteri e consapevolezze, ma che richiede anche l'assunzione di grandi responsabilità verso se stessi e gli altri."
+            desc: "Peter Parker è il simbolo della metamorfosi adolescenziale. Il morso del ragno rappresenta il cambiamento improvviso (fisico e psicologico) che porta con sé nuove responsabilità. È un invito ad accettare le proprie trasformazioni come poteri positivi."
         },
         {
             title: "Kuromi",
             category: "Identità",
             tag: "tag-purple",
             img: "https://www.licensingitalia.it/wp-content/uploads/2025/01/KU-1-scaled.jpg",
-            desc: "Rappresentante dell'estetica punk-lolita, Kuromi esprime il desiderio di definire la propria personalità fuori dagli schemi classici. Simboleggia la libertà di manifestare un lato forte o alternativo senza rinunciare alla propria sensibilità."
+            desc: "Personaggio dall'estetica punk-lolita che celebra la libertà di espressione. Kuromi insegna che è possibile mostrare un lato forte, ribelle o 'nero' senza perdere la propria sensibilità interiore, abbattendo gli stereotipi di genere."
         },
         {
             title: "Simbolo della Pace",
-            category: "Valori Universali",
+            category: "Valori",
             tag: "tag-green",
             img: "https://wips.plug.it/cips/virgilio.sapere.it/cms/2021/09/bandiera-della-pace.jpg",
-            desc: "Nato negli anni '50, rappresenta oggi l'invito universale alla non violenza e alla giustizia. Nel contesto scolastico, sottolinea l'importanza del dialogo e del rispetto delle differenze per la costruzione di una convivenza civile e solidale."
+            desc: "Nato negli anni '50 per il disarmo nucleare, rappresenta oggi la convivenza armoniosa. È un invito esplicito a risolvere i conflitti tramite il dialogo e il rispetto reciproco, pilastri fondamentali per una comunità scolastica sana."
+        },
+        {
+            title: "Unione e Amore",
+            category: "Cooperazione",
+            tag: "tag-red",
+            img: "https://images.unsplash.com/photo-1516589174184-c6852657d803?auto=format&fit=crop&q=80&w=800",
+            desc: "Come evidenziato nel progetto, l'amore è il fondamento della comunità. La stretta di mano che forma un cuore suggerisce che la cooperazione non deve essere un atto formale, ma deve nascere da un sincero sentimento di empatia e inclusione universale."
         }
     ];
 
@@ -239,7 +261,7 @@
             <div class="card-content">
                 <span class="category-tag ${item.tag}">${item.category}</span>
                 <h3>${item.title}</h3>
-                <p>${item.desc.substring(0, 90)}...</p>
+                <p>${item.desc.substring(0, 85)}...</p>
             </div>
         `;
         card.onclick = () => {
