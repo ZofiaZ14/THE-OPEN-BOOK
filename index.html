@@ -18,15 +18,12 @@
             --accent: #37474f;
         }
 
-        * { box-sizing: border-box; }
-
         body {
             font-family: 'Inter', sans-serif;
             background-color: var(--primary-bg);
             color: var(--text-main);
             line-height: 1.6;
             margin: 0;
-            padding: 0;
         }
 
         header {
@@ -41,14 +38,13 @@
             font-size: 3rem;
             margin: 0;
             color: var(--accent);
-            letter-spacing: -1px;
         }
 
         .subtitle {
-            font-size: 1.1rem;
+            font-size: 0.9rem;
             color: var(--text-muted);
             max-width: 600px;
-            margin: 20px auto;
+            margin: 10px auto;
             text-transform: uppercase;
             letter-spacing: 2px;
             font-weight: 600;
@@ -63,13 +59,12 @@
             padding: 0 20px;
         }
 
-        /* Card Scolastica Raffinata */
         .card {
             background: white;
             border-radius: 4px;
             overflow: hidden;
             box-shadow: 0 4px 20px rgba(0,0,0,0.03);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: all 0.3s ease;
             cursor: pointer;
             border: 1px solid #f0f0f0;
         }
@@ -81,15 +76,9 @@
 
         .card-image-preview {
             width: 100%;
-            height: 200px;
+            height: 220px;
             background-size: cover;
             background-position: center;
-            filter: grayscale(20%);
-            transition: filter 0.3s ease;
-        }
-
-        .card:hover .card-image-preview {
-            filter: grayscale(0%);
         }
 
         .card-content {
@@ -97,10 +86,9 @@
         }
 
         .category-tag {
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 1px;
             padding: 4px 12px;
             border-radius: 2px;
             display: inline-block;
@@ -110,16 +98,10 @@
         .card h3 {
             margin: 0 0 10px 0;
             font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
+            font-size: 1.4rem;
         }
 
-        .card p {
-            font-size: 0.95rem;
-            color: var(--text-muted);
-            margin: 0;
-        }
-
-        /* Modal / Pannello Dettaglio */
+        /* Modal */
         .modal {
             display: none;
             position: fixed;
@@ -130,181 +112,152 @@
         }
 
         .modal-container {
-            max-width: 900px;
-            margin: 40px auto;
-            padding: 40px 20px;
+            max-width: 1000px;
+            margin: 60px auto;
+            padding: 20px;
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            align-items: center;
+            gap: 50px;
+            align-items: start;
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 850px) {
             .modal-container { grid-template-columns: 1fr; }
         }
 
         .modal-image-full {
             width: 100%;
-            border-radius: 8px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-        }
-
-        .modal-info h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            margin-top: 0;
-        }
-
-        .modal-info p {
-            font-size: 1.1rem;
-            color: var(--text-main);
-            line-height: 1.8;
+            border-radius: 4px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
 
         .close-btn {
             position: fixed;
-            top: 30px; right: 30px;
-            font-size: 1.2rem;
-            font-weight: 600;
-            cursor: pointer;
-            padding: 10px 20px;
+            top: 20px; right: 20px;
+            padding: 10px 25px;
+            background: #fff;
             border: 1px solid #ddd;
-            border-radius: 50px;
-            background: white;
+            cursor: pointer;
+            font-weight: 600;
             z-index: 2100;
         }
 
-        footer {
-            text-align: center;
-            padding: 100px 20px;
-            border-top: 1px solid #eee;
-            margin-top: 50px;
-            font-size: 0.9rem;
-            color: var(--text-muted);
-        }
-
-        /* Colori Categorie */
+        /* Categorie Colori */
         .tag-blue { background: var(--pastel-blue); color: #0d47a1; }
         .tag-red { background: var(--pastel-red); color: #b71c1c; }
         .tag-green { background: var(--pastel-green); color: #1b5e20; }
-        .tag-yellow { background: var(--pastel-yellow); color: #f57f17; }
         .tag-purple { background: var(--pastel-purple); color: #4a148c; }
+        .tag-yellow { background: var(--pastel-yellow); color: #f57f17; }
 
+        footer {
+            text-align: center;
+            padding: 60px;
+            border-top: 1px solid #eee;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
     </style>
 </head>
 <body>
 
 <header>
-    <div class="subtitle">Percorso Multidisciplinare</div>
+    <div class="subtitle">Progetto Scolastico di Street Art</div>
     <h1>The Open Book</h1>
-    <p>Analisi semiotica e sociale delle figure iconografiche nel murales scolastico.</p>
+    <p>Analisi iconografica e simbolica dei personaggi e dei valori dell'opera.</p>
 </header>
 
-<div class="container" id="gallery">
-    </div>
+<div class="container" id="gallery"></div>
 
 <footer>
-    <p>Istituto Scolastico - Progetto Inclusione "The Open Book" &copy; 2024</p>
+    Progetto Didattico Integrato - Analisi dei Linguaggi Visivi Contemporanei
 </footer>
 
 <div id="modal" class="modal">
     <div class="close-btn" onclick="closeModal()">CHIUDI</div>
     <div class="modal-container">
-        <img id="m-img" class="modal-image-full" src="" alt="Dettaglio opera">
+        <img id="m-img" class="modal-image-full" src="" alt="">
         <div class="modal-info">
             <div id="m-tag" class="category-tag"></div>
-            <h2 id="m-title"></h2>
-            <p id="m-desc"></p>
+            <h2 id="m-title" style="font-family: 'Playfair Display', serif; font-size: 2.5rem; margin: 15px 0;"></h2>
+            <p id="m-desc" style="font-size: 1.1rem; color: #444; line-height: 1.8;"></p>
         </div>
     </div>
 </div>
 
 <script>
-    const projectData = [
+    const data = [
         {
             title: "Doraemon",
-            category: "Consapevolezza Tecnologica",
-            tagClass: "tag-blue",
+            category: "Consapevolezza",
+            tag: "tag-blue",
             img: "https://upload.wikimedia.org/wikipedia/it/e/e1/Doraemon_Hiroshi_Fujimoto.png",
-            desc: "Icona globale creata dal duo Fujiko Fujio. Rappresenta il rapporto tra l'essere umano e la tecnologia. Nel contesto del murales, gli occhi a cuoricino richiamano l'adolescenza come fase di vulnerabilità ed emotività, ricordando che gli strumenti tecnologici non possono sostituire la maturità e l'impegno individuale."
+            desc: "Creato dal duo Fujiko Fujio, Doraemon è un gatto robot del futuro. Nel murales, i suoi occhi a cuoricino simboleggiano i primi amori e la vulnerabilità dell'adolescenza. L'opera suggerisce che la tecnologia (i chiuski) non può sostituire l'impegno personale e la maturità."
         },
         {
             title: "Deadpool",
-            category: "Dinamiche Sociali",
-            tagClass: "tag-red",
-            img: "https://upload.wikimedia.org/wikipedia/en/4/44/Deadpool_Characters.png",
-            desc: "L'antieroe Marvel creato nel 1991 simboleggia la rottura degli schemi. La sua capacità di 'rompere la quarta parete' viene qui interpretata come la necessità adolescenziale di mettere in discussione le regole precostituite, utilizzando l'ironia come forma di resilienza e critica sociale."
+            category: "Ribellione",
+            tag: "tag-red",
+            img: "https://static.wikia.nocookie.net/marveldatabase/images/d/df/Deadpool_Vol_5_1_Lozano_Variant_Textless.jpg",
+            desc: "Creato nel 1991, è un antieroe noto per rompere la 'quarta parete'. All'interno del progetto scolastico, Deadpool rappresenta la ribellione costruttiva alle regole rigide e la capacità critica di guardare oltre le convenzioni sociali attraverso l'ironia."
         },
         {
             title: "Adventure Time",
-            category: "Relazioni Interpersonali",
-            tagClass: "tag-yellow",
-            img: "https://upload.wikimedia.org/wikipedia/en/3/37/Adventure_Time_-_Finn_and_Jake.png",
-            desc: "Finn e Jake rappresentano il concetto di 'famiglia scelta'. In un percorso di crescita, il legame amicale diventa la struttura portante che permette agli studenti di affrontare le sfide quotidiane, sottolineando l'importanza della solidarietà nel superare ostacoli complessi."
+            category: "Amicizia",
+            tag: "tag-yellow",
+            img: "https://static.wikia.nocookie.net/adventuretimewithfinnandjake/images/3/3b/Finn_and_Jake_pointing.png",
+            desc: "Finn e Jake incarnano il valore della 'famiglia scelta'. Rappresentano la solidarietà e il sostegno reciproco necessari per affrontare le sfide della crescita. L'amicizia viene qui vista come una bussola emotiva fondamentale."
         },
         {
             title: "Spider-man",
-            category: "Fisica e Metamorfosi",
-            tagClass: "tag-blue",
+            category: "Metamorfosi",
+            tag: "tag-blue",
             img: "https://upload.wikimedia.org/wikipedia/it/b/b3/Uomo_Ragno.png",
-            desc: "La figura di Peter Parker è l'archetipo della metamorfosi adolescenziale. Il simbolo del ragno richiama la trasformazione biologica e psicologica: un cambiamento che, seppur traumatico, porta alla scoperta di nuove potenzialità e alla conseguente assunzione di grandi responsabilità verso la comunità."
+            desc: "Il simbolo del ragno richiama la metamorfosi dell'adolescente. Come Peter Parker, ogni studente affronta un cambiamento che porta nuovi poteri e consapevolezze, ma che richiede anche l'assunzione di grandi responsabilità verso se stessi e gli altri."
         },
         {
             title: "Kuromi",
-            category: "Identità di Genere",
-            tagClass: "tag-purple",
-            img: "https://upload.wikimedia.org/wikipedia/en/5/5e/Kuromi_Sanrio.png",
-            desc: "Carattere distintivo della cultura pop contemporanea, Kuromi incarna il desiderio di espressione di sé fuori dagli stereotipi convenzionali. Rappresenta l'accettazione della propria natura complessa, dove un'estetica forte convive con una profonda sensibilità interiore."
+            category: "Identità",
+            tag: "tag-purple",
+            img: "https://www.sanrio.it/cdn/shop/files/Kuromi-Character-Page-Mobile_600x.png",
+            desc: "Rappresentante dell'estetica punk-lolita, Kuromi esprime il desiderio di definire la propria personalità fuori dagli schemi classici. Simboleggia la libertà di manifestare un lato forte o alternativo senza rinunciare alla propria sensibilità."
         },
         {
             title: "Simbolo della Pace",
             category: "Valori Universali",
-            tagClass: "tag-green",
-            img: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Peace_symbol.svg/500px-Peace_symbol.svg.png",
-            desc: "Originato negli anni '50, il simbolo rappresenta l'impegno collettivo verso la non violenza. Nel progetto scolastico, è un monito al dialogo interculturale e alla gestione pacifica dei conflitti, fondamentali per costruire una convivenza civile e armoniosa."
-        },
-        {
-            title: "Cooperazione (Cuore)",
-            category: "Inclusione Sociale",
-            tagClass: "tag-red",
-            img: "https://images.unsplash.com/photo-1516589174184-c6852657d803?auto=format&fit=crop&q=80&w=800",
-            desc: "La stretta di mano che forma un cuore è il perno centrale dell'opera. Suggerisce che la collaborazione non deve essere un atto formale o burocratico, ma deve scaturire da un sentimento di empatia e amore universale. È la base teorica della scuola inclusiva."
+            tag: "tag-green",
+            img: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Peace_symbol.svg/1200px-Peace_symbol.svg.png",
+            desc: "Nato negli anni '50, rappresenta oggi l'invito universale alla non violenza e alla giustizia. Nel contesto scolastico, sottolinea l'importanza del dialogo e del rispetto delle differenze per la costruzione di una convivenza civile e solidale."
         }
     ];
 
     const gallery = document.getElementById('gallery');
-
-    projectData.forEach(item => {
-        const card = document.createElement('article');
+    data.forEach(item => {
+        const card = document.createElement('div');
         card.className = 'card';
         card.innerHTML = `
             <div class="card-image-preview" style="background-image: url('${item.img}')"></div>
             <div class="card-content">
-                <span class="category-tag ${item.tagClass}">${item.category}</span>
+                <span class="category-tag ${item.tag}">${item.category}</span>
                 <h3>${item.title}</h3>
-                <p>${item.desc.substring(0, 100)}...</p>
+                <p>${item.desc.substring(0, 90)}...</p>
             </div>
         `;
-        card.onclick = () => openModal(item);
+        card.onclick = () => {
+            document.getElementById('m-img').src = item.img;
+            document.getElementById('m-title').innerText = item.title;
+            document.getElementById('m-desc').innerText = item.desc;
+            document.getElementById('m-tag').innerText = item.category;
+            document.getElementById('m-tag').className = 'category-tag ' + item.tag;
+            document.getElementById('modal').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        };
         gallery.appendChild(card);
     });
 
-    function openModal(data) {
-        document.getElementById('m-title').innerText = data.title;
-        document.getElementById('m-desc').innerText = data.desc;
-        document.getElementById('m-img').src = data.img;
-        const tag = document.getElementById('m-tag');
-        tag.innerText = data.category;
-        tag.className = 'category-tag ' + data.tagClass;
-        document.getElementById('modal').style.display = 'block';
-        document.body.style.overflow = 'hidden'; // Blocca lo scroll
-    }
-
     function closeModal() {
         document.getElementById('modal').style.display = 'none';
-        document.body.style.overflow = 'auto'; // Riattiva lo scroll
+        document.body.style.overflow = 'auto';
     }
 </script>
-
 </body>
 </html>
