@@ -4,18 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Open Book - Analisi Iconografica</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@900&display=swap" rel="stylesheet">
     <style>
         :root {
-            /* Gradiente azzurro pastello */
-            --bg-gradient: linear-gradient(180deg, #a2d2ff 0%, #e3f2fd 100%);
-            --pastel-blue: #d1e9ff;
-            --pastel-red: #ffebee;
-            --pastel-yellow: #fffde7;
-            --pastel-green: #e8f5e9;
-            --pastel-purple: #f3e5f5;
-            --text-main: #1a1a1a;
-            --text-muted: #455a64;
+            /* Gradiente azzurro pastello: da più scuro a più chiaro */
+            --bg-gradient: linear-gradient(180deg, #90caf9 0%, #e3f2fd 100%);
+            --text-main: #000000;
+            --text-muted: #2c3e50;
+            --pastel-blue: #bbdefb;
+            --pastel-red: #ffcdd2;
+            --pastel-yellow: #fff9c4;
+            --pastel-green: #c8e6c9;
+            --pastel-purple: #e1bee7;
         }
 
         body {
@@ -29,98 +29,102 @@
         }
 
         header {
-            padding: 60px 20px 40px;
+            padding: 80px 20px 40px;
             text-align: center;
         }
 
         h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 5rem; /* Titolo molto più grande */
+            font-size: 6.5rem;
             margin: 0;
-            color: #000000; /* Nero assoluto */
-            letter-spacing: -2px;
-            line-height: 1.1;
+            color: #000000;
+            letter-spacing: -4px;
+            line-height: 1;
+            text-transform: uppercase;
         }
 
         .subtitle {
-            font-size: 1rem;
+            font-size: 1.1rem;
             color: var(--text-muted);
-            max-width: 600px;
-            margin: 15px auto;
-            text-transform: uppercase;
-            letter-spacing: 3px;
+            max-width: 900px;
+            margin: 25px auto;
+            letter-spacing: 1px;
+            font-weight: 500;
+            line-height: 1.5;
+            padding: 0 20px;
+        }
+
+        .highlight-names {
             font-weight: 700;
+            color: #000;
         }
 
         /* Immagine Principale Panoramica */
         .main-project-container {
-            width: 95%;
-            max-width: 1400px;
-            margin: 20px auto;
+            width: 100%;
+            margin: 40px 0;
             overflow: hidden;
-            border-radius: 15px;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
-            border: 8px solid white;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
         }
 
         .main-project-img {
             width: 100%;
-            height: 45vh; /* Occupa circa metà altezza visiva */
-            object-fit: cover; /* Ritaglia l'immagine per riempire lo spazio largo */
+            height: 50vh;
+            object-fit: cover;
             display: block;
         }
 
         .container {
-            max-width: 1200px;
-            margin: 50px auto;
+            max-width: 1300px;
+            margin: 60px auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
-            padding: 0 20px;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            padding: 0 40px;
         }
 
         .card {
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(10px);
-            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             cursor: pointer;
-            border: 1px solid rgba(255,255,255,0.5);
+            border: 1px solid rgba(255,255,255,0.4);
         }
 
         .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 30px rgba(0,0,0,0.1);
-            background: #fff;
+            transform: translateY(-15px);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.12);
+            background: rgba(255, 255, 255, 0.95);
         }
 
         .card-image-preview {
             width: 100%;
-            height: 200px;
+            height: 250px;
             background-size: cover;
             background-position: center;
         }
 
         .card-content {
-            padding: 25px;
+            padding: 35px;
         }
 
         .category-tag {
-            font-size: 0.75rem;
-            font-weight: 700;
+            font-size: 0.8rem;
+            font-weight: 800;
             text-transform: uppercase;
-            padding: 5px 14px;
-            border-radius: 6px;
+            padding: 6px 16px;
+            border-radius: 8px;
             display: inline-block;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
 
         .card h3 {
-            margin: 0 0 10px 0;
+            margin: 0 0 15px 0;
             font-family: 'Playfair Display', serif;
-            font-size: 1.7rem;
+            font-size: 2rem;
             color: #000;
         }
 
@@ -129,27 +133,22 @@
             display: none;
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(8px);
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(10px);
             z-index: 2000;
-            overflow-y: auto;
         }
 
         .modal-content-wrapper {
             background: white;
-            max-width: 1000px;
-            margin: 50px auto;
-            border-radius: 20px;
+            max-width: 1100px;
+            width: 90%;
+            margin: 5vh auto;
+            border-radius: 30px;
             overflow: hidden;
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1.2fr 1fr;
+            height: 90vh;
             position: relative;
-        }
-
-        @media (max-width: 850px) {
-            h1 { font-size: 3rem; }
-            .modal-content-wrapper { grid-template-columns: 1fr; margin: 20px; }
-            .main-project-img { height: 30vh; }
         }
 
         .modal-image-full {
@@ -158,20 +157,33 @@
             object-fit: cover;
         }
 
-        .modal-info { padding: 40px; }
+        .modal-info {
+            padding: 60px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
 
         .close-btn {
             position: absolute;
-            top: 20px;
-            right: 20px;
-            padding: 10px 20px;
+            top: 30px;
+            right: 30px;
+            padding: 15px 25px;
             background: #000;
             color: #fff;
             border: none;
             cursor: pointer;
-            border-radius: 50px;
-            font-weight: bold;
+            border-radius: 12px;
+            font-weight: 800;
             z-index: 2100;
+        }
+
+        @media (max-width: 900px) {
+            h1 { font-size: 3.5rem; letter-spacing: -2px; }
+            .modal-content-wrapper { grid-template-columns: 1fr; height: auto; margin: 20px auto; }
+            .modal-image-full { height: 300px; }
+            .main-project-img { height: 35vh; }
         }
 
         .tag-blue { background: var(--pastel-blue); color: #0d47a1; }
@@ -182,28 +194,34 @@
 
         footer {
             text-align: center;
-            padding: 60px;
+            padding: 100px 20px;
             color: var(--text-muted);
-            font-weight: 600;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
         }
     </style>
 </head>
 <body>
 
 <header>
-    <div class="subtitle">Progetto Street Art Scolastica</div>
     <h1>The Open Book</h1>
-    <p style="color: #444; font-weight: 500;">Un'analisi multidisciplinare tra simbolismo e inclusione.</p>
-    
-    <div class="main-project-container">
-        <img src="https://github.com/ZofiaZ14/THE-OPEN-BOOK/blob/main/IMG_2817.jpeg?raw=true" alt="Murales The Open Book" class="main-project-img">
+    <div class="subtitle">
+        Un ringraziamento al <span class="highlight-names">professore Miglionico</span>, 
+        alla <span class="highlight-names">professoressa Castelli</span>, 
+        a <span class="highlight-names">Christian Gancitano</span> 
+        e a tutti gli studenti che lo hanno realizzato.
     </div>
 </header>
+
+<div class="main-project-container">
+    <img src="https://github.com/ZofiaZ14/THE-OPEN-BOOK/blob/main/IMG_2817.jpeg?raw=true" alt="Murales The Open Book" class="main-project-img">
+</div>
 
 <div class="container" id="gallery"></div>
 
 <footer>
-    Istituto Scolastico - Analisi dei Linguaggi Visivi &copy; 2024
+    Progetto di Street Art Scolastica &copy; 2024
 </footer>
 
 <div id="modal" class="modal" onclick="closeModal()">
@@ -212,8 +230,8 @@
         <img id="m-img" class="modal-image-full" src="" alt="">
         <div class="modal-info">
             <div id="m-tag" class="category-tag"></div>
-            <h2 id="m-title" style="font-family: 'Playfair Display', serif; font-size: 2.5rem; margin: 15px 0; color: #000;"></h2>
-            <p id="m-desc" style="font-size: 1.1rem; color: #333; line-height: 1.8;"></p>
+            <h2 id="m-title" style="font-family: 'Playfair Display', serif; font-size: 3.5rem; margin: 20px 0; color: #000; line-height: 1;"></h2>
+            <p id="m-desc" style="font-size: 1.2rem; color: #333; line-height: 1.8;"></p>
         </div>
     </div>
 </div>
@@ -225,42 +243,42 @@
             category: "Consapevolezza",
             tag: "tag-blue",
             img: "https://media-assets.wired.it/photos/615daa8d10023c62ea4761a0/master/w_1600%2Cc_limit/765b31b47db31884ab90e2caeba74673.jpg",
-            desc: "Doraemon simboleggia il rapporto tra uomo e tecnologia. Con i suoi 'chiuski' aiuta Nobita, ma il messaggio centrale dell'opera è che gli strumenti non sostituiscono la maturità. Gli occhi a cuoricino richiamano la sfera emotiva dell'adolescente."
+            desc: "Doraemon simboleggia il rapporto tra l'umano e il supporto tecnologico. Gli occhi a cuoricino rappresentano l'innocenza dei primi legami affettivi. Il messaggio dell'opera sottolinea che, nonostante gli strumenti (chiuski), la crescita dipende dalla maturità individuale."
         },
         {
             title: "Deadpool",
             category: "Ribellione",
             tag: "tag-red",
             img: "https://miro.medium.com/v2/resize:fit:1200/1*0ubYRV_WNR9iYrzUAVINHw.jpeg",
-            desc: "L'antieroe Marvel che rompe la quarta parete rappresenta la capacità di critica sociale degli studenti. La sua ironia è uno strumento per affrontare le regole rigide e sviluppare un pensiero indipendente."
+            desc: "L'antieroe Marvel è simbolo della rottura degli schemi. Rappresenta la voce critica degli adolescenti verso le strutture sociali rigide. La sua capacità di rompere la 'quarta parete' è metafora di un pensiero libero."
         },
         {
             title: "Adventure Time",
             category: "Amicizia",
             tag: "tag-yellow",
             img: "https://m.media-amazon.com/images/S/pv-target-images/49804f856694464db76c363bc3db3d85a32fa00fbddb6f4898715d4551edf8e6.jpg",
-            desc: "Finn e Jake incarnano la solidarietà pura. In un mondo complesso, rappresentano il valore dell'amicizia come base sicura per esplorare la propria identità e affrontare insieme le sfide della vita."
+            desc: "Finn e Jake incarnano il valore assoluto della lealtà. Nel contesto scolastico, questa coppia simboleggia la cooperazione tra pari e il sostegno reciproco, necessari per costruire una comunità inclusiva."
         },
         {
             title: "Spider-man",
             category: "Metamorfosi",
             tag: "tag-blue",
             img: "https://conversazionisulfumetto.wordpress.com/wp-content/uploads/2012/09/spiderman-300x285.jpg",
-            desc: "La trasformazione di Peter Parker è la metafora perfetta del cambiamento adolescenziale. Nuovi poteri comportano grandi responsabilità: un invito ad accettare la crescita come un'opportunità di miglioramento."
+            desc: "Peter Parker rappresenta lo studente in evoluzione. L'acquisizione di nuove forze richiede l'assunzione di grandi responsabilità: un incitamento a gestire il proprio potenziale con saggezza e coraggio."
         },
         {
             title: "Kuromi",
             category: "Identità",
             tag: "tag-purple",
             img: "https://www.licensingitalia.it/wp-content/uploads/2025/01/KU-1-scaled.jpg",
-            desc: "Simbolo di un'estetica libera e punk, Kuromi insegna che l'aspetto esteriore o un'attitudine forte non precludono una profonda sensibilità. Rappresenta la lotta contro gli stereotipi di genere."
+            desc: "Kuromi sfida gli stereotipi estetici. Con il suo stile punk, invita ad accettare ogni sfumatura della propria personalità, promuovendo l'orgoglio di manifestare la propria unicità senza paura del giudizio."
         },
         {
             title: "Simbolo della Pace",
-            category: "Valori",
+            category: "Valori Universali",
             tag: "tag-green",
             img: "https://wips.plug.it/cips/virgilio.sapere.it/cms/2021/09/bandiera-della-pace.jpg",
-            desc: "Un invito universale alla non violenza e al dialogo. Nel contesto scolastico, sottolinea che la giustizia e la convivenza armoniosa sono obiettivi da costruire quotidianamente con il rispetto reciproco."
+            desc: "Un richiamo alla giustizia sociale e alla risoluzione pacifica dei conflitti. Questo simbolo ricorda che la cultura e l'arte devono tendere alla costruzione di un futuro sicuro, solidale e armonioso."
         }
     ];
 
@@ -273,7 +291,7 @@
             <div class="card-content">
                 <span class="category-tag ${item.tag}">${item.category}</span>
                 <h3>${item.title}</h3>
-                <p>${item.desc.substring(0, 85)}...</p>
+                <p>${item.desc.substring(0, 95)}...</p>
             </div>
         `;
         card.onclick = () => {
