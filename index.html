@@ -143,4 +143,132 @@
         }
 
         /* Classi Colore */
-        .bg-pink { background: var(--pink
+        .bg-pink { background: var(--pink); color: white; }
+        .bg-blue { background: var(--blue); color: white; }
+        .bg-yellow { background: var(--yellow); color: var(--text); }
+        .bg-green { background: var(--green); color: var(--text); }
+        .bg-lavender { background: var(--lavender); color: white; }
+
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>The Open Book</h1>
+    <p>Un viaggio tra inclusione, arte e metamorfosi</p>
+</header>
+
+<div class="container" id="gallery">
+    </div>
+
+<footer>
+    <p>&copy; 2024 - Progetto Street Art Scolastica</p>
+</footer>
+
+<div id="modal" class="modal" onclick="closeModal()">
+    <div class="modal-content" onclick="event.stopPropagation()">
+        <span class="close-btn" onclick="closeModal()">&times;</span>
+        <img id="m-img" class="modal-image" src="" alt="Opera">
+        <h2 id="m-title" style="font-family: 'Pacifico'; font-size: 2.5rem;"></h2>
+        <p id="m-desc" style="font-size: 1.1rem; line-height: 1.6;"></p>
+    </div>
+</div>
+
+<script>
+    const works = [
+        {
+            title: "Doraemon",
+            badge: "Consapevolezza",
+            color: "bg-blue",
+            icon: "🐱",
+            img: "https://images.unsplash.com/photo-1578632292335-df3abbb0d586?auto=format&fit=crop&q=80&w=600",
+            desc: "Doraemon, il gatto robot del futuro, simboleggia i gadget tecnologici che però non possono sostituire l'impegno umano. Nel murales, i suoi occhi a cuoricino rappresentano la vulnerabilità dei primi amori adolescenti e la scoperta della propria emotività."
+        },
+        {
+            title: "Deadpool",
+            badge: "Ribellione",
+            color: "bg-pink",
+            icon: "⚔️",
+            img: "https://images.unsplash.com/photo-1608889175123-8ee362201f81?auto=format&fit=crop&q=80&w=600",
+            desc: "Creato nel 1991, Deadpool è l'antieroe che rompe la quarta parete. Per gli studenti rappresenta la capacità di sfidare le regole precostituite e l'ironia come strumento di difesa contro le pressioni sociali."
+        },
+        {
+            title: "Adventure Time",
+            badge: "Amicizia",
+            color: "bg-yellow",
+            icon: "⚔️🐕",
+            img: "https://images.unsplash.com/photo-1541562232579-512a21360020?auto=format&fit=crop&q=80&w=600",
+            desc: "Finn e Jake incarnano la 'famiglia scelta'. Nell'adolescenza, gli amici diventano la bussola fondamentale per navigare le difficoltà della crescita e scoprire la propria identità in un mondo complesso."
+        },
+        {
+            title: "Kuromi",
+            badge: "Identità",
+            color: "bg-lavender",
+            icon: "😈",
+            img: "https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?auto=format&fit=crop&q=80&w=600",
+            desc: "L'estetica punk-lolita di Kuromi celebra il desiderio di esprimere una personalità forte, alternativa o 'oscura' senza rinnegare la propria sensibilità interiore. Un inno alla libertà di essere se stessi oltre gli stereotipi."
+        },
+        {
+            title: "Spider-man",
+            badge: "Metamorfosi",
+            color: "bg-blue",
+            icon: "🕷️",
+            img: "https://images.unsplash.com/photo-1635805737707-575885ab0820?auto=format&fit=crop&q=80&w=600",
+            desc: "Il ragno simboleggia la trasformazione. Come Peter Parker, l'adolescente vive una mutazione fisica e psicologica che porta con sé nuovi 'poteri' ma anche la grande responsabilità di gestire il proprio futuro."
+        },
+        {
+            title: "Unione & Empatia",
+            badge: "Cooperazione",
+            color: "bg-green",
+            icon: "🤝❤️",
+            img: "https://images.unsplash.com/photo-1521791136064-7986c2959210?auto=format&fit=crop&q=80&w=600",
+            desc: "La stretta di mano che forma un cuore nel murales suggerisce che l'intesa e la cooperazione non sono solo atti formali, ma nascono da un sentimento di empatia e amore universale tra gli esseri umani."
+        },
+        {
+            title: "Simbolo della Pace",
+            badge: "Valori",
+            color: "bg-yellow",
+            icon: "☮️",
+            img: "https://images.unsplash.com/photo-1563283331-5079a405787f?auto=format&fit=crop&q=80&w=600",
+            desc: "Un invito alla non violenza e alla convivenza armoniosa. Ci ricorda che ogni gesto di comprensione contribuisce a costruire un futuro più sicuro e solidale per tutti."
+        },
+        {
+            title: "The Open Book",
+            badge: "Concept",
+            color: "bg-pink",
+            icon: "📖",
+            img: "https://images.unsplash.com/photo-1532012197267-da84d127e765?auto=format&fit=crop&q=80&w=600",
+            desc: "La scuola vista come un libro aperto sul mondo. Ogni pagina rappresenta un'esperienza, una lezione o un personaggio che ha contribuito a formare il bagaglio culturale e umano degli studenti."
+        }
+    ];
+
+    const gallery = document.getElementById('gallery');
+
+    works.forEach(work => {
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.innerHTML = `
+            <span class="badge ${work.color}">${work.badge}</span>
+            <div class="icon-box">${work.icon}</div>
+            <h3>${work.title}</h3>
+            <p style="font-size: 0.9rem">Clicca per approfondire</p>
+        `;
+        card.onclick = () => openModal(work);
+        gallery.appendChild(card);
+    });
+
+    function openModal(work) {
+        document.getElementById('m-title').innerText = work.title;
+        document.getElementById('m-desc').innerText = work.desc;
+        document.getElementById('m-img').src = work.img;
+        document.getElementById('m-title').style.color = getComputedStyle(document.documentElement).getPropertyValue('--' + work.color.split('-')[1]);
+        document.getElementById('modal').style.display = 'flex';
+    }
+
+    function closeModal() {
+        document.getElementById('modal').style.display = 'none';
+    }
+</script>
+
+</body>
+</html>
