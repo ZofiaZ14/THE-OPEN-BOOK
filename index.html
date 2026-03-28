@@ -7,7 +7,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@900&display=swap" rel="stylesheet">
     <style>
         :root {
-            /* Gradiente azzurro pastello: da più scuro a più chiaro */
             --bg-gradient: linear-gradient(180deg, #90caf9 0%, #e3f2fd 100%);
             --text-main: #000000;
             --text-muted: #2c3e50;
@@ -59,12 +58,12 @@
             color: #000;
         }
 
-        /* Immagine Principale Panoramica */
         .main-project-container {
             width: 100%;
             margin: 40px 0;
             overflow: hidden;
             box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+            background: #fff;
         }
 
         .main-project-img {
@@ -107,9 +106,7 @@
             background-position: center;
         }
 
-        .card-content {
-            padding: 35px;
-        }
+        .card-content { padding: 35px; }
 
         .category-tag {
             font-size: 0.8rem;
@@ -128,7 +125,6 @@
             color: #000;
         }
 
-        /* Modal */
         .modal {
             display: none;
             position: fixed;
@@ -151,11 +147,7 @@
             position: relative;
         }
 
-        .modal-image-full {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+        .modal-image-full { width: 100%; height: 100%; object-fit: cover; }
 
         .modal-info {
             padding: 60px;
@@ -215,7 +207,7 @@
 </header>
 
 <div class="main-project-container">
-    <img src="https://github.com/ZofiaZ14/THE-OPEN-BOOK/blob/main/IMG_8101%20(2).jpg?raw=true">
+    <img src="https://github.com/ZofiaZ14/THE-OPEN-BOOK/blob/main/IMG_8101%20(2).jpg?raw=true" alt="Murales The Open Book" class="main-project-img">
 </div>
 
 <div class="container" id="gallery"></div>
@@ -243,42 +235,49 @@
             category: "Consapevolezza",
             tag: "tag-blue",
             img: "https://github.com/ZofiaZ14/THE-OPEN-BOOK/blob/main/IMG_8107.jpg?raw=true",
-            desc: "Doraemon simboleggia il rapporto tra l'umano e il supporto tecnologico. Gli occhi a cuoricino rappresentano l'innocenza dei primi legami affettivi. Il messaggio dell'opera sottolinea che, nonostante gli strumenti (chiuski), la crescita dipende dalla maturità individuale."
+            desc: "Doraemon simboleggia il rapporto tra l'umano e il supporto tecnologico. Gli occhi a cuoricino rappresentano l'innocenza dei primi legami affettivi. Il messaggio sottolinea che la tecnologia non può sostituire l'impegno e la maturità umana."
         },
         {
             title: "Deadpool",
             category: "Ribellione",
             tag: "tag-red",
             img: "https://github.com/ZofiaZ14/THE-OPEN-BOOK/blob/main/IMG_8106.jpg?raw=true",
-            desc: "L'antieroe Marvel è simbolo della rottura degli schemi. Rappresenta la voce critica degli adolescenti verso le strutture sociali rigide. La sua capacità di rompere la 'quarta parete' è metafora di un pensiero libero."
+            desc: "L'antieroe Marvel è simbolo della rottura degli schemi. Rappresenta la voce critica e l'ironia degli adolescenti verso le strutture sociali rigide, incoraggiando un pensiero indipendente e fuori dagli schemi."
         },
         {
             title: "Adventure Time",
             category: "Amicizia",
             tag: "tag-yellow",
             img: "https://github.com/ZofiaZ14/THE-OPEN-BOOK/blob/main/IMG_8110%20(1)%20(1).jpg?raw=true",
-            desc: "Finn e Jake incarnano il valore assoluto della lealtà. Nel contesto scolastico, questa coppia simboleggia la cooperazione tra pari e il sostegno reciproco, necessari per costruire una comunità inclusiva."
+            desc: "Finn e Jake incarnano la lealtà assoluta. Simboleggiano la cooperazione e il sostegno reciproco, elementi necessari per costruire una comunità inclusiva all'interno del percorso scolastico."
         },
         {
             title: "Spider-man",
             category: "Metamorfosi",
             tag: "tag-blue",
             img: "https://github.com/ZofiaZ14/THE-OPEN-BOOK/blob/main/IMG_2830.jpg?raw=true",
-            desc: "Peter Parker rappresenta lo studente in evoluzione. L'acquisizione di nuove forze richiede l'assunzione di grandi responsabilità: un incitamento a gestire il proprio potenziale con saggezza e coraggio."
+            desc: "Peter Parker rappresenta la metamorfosi adolescenziale. La mutazione e i nuovi poteri sono metafora delle responsabilità che derivano dalla crescita e dalla scoperta del proprio potenziale."
         },
         {
             title: "Kuromi",
             category: "Identità",
             tag: "tag-purple",
             img: "https://github.com/ZofiaZ14/THE-OPEN-BOOK/blob/main/IMG_2824.jpg?raw=true",
-            desc: "Kuromi sfida gli stereotipi estetici. Con il suo stile punk, invita ad accettare ogni sfumatura della propria personalità, promuovendo l'orgoglio di manifestare la propria unicità senza paura del giudizio."
+            desc: "Kuromi sfida gli stereotipi estetici. Con il suo stile punk, invita ad accettare ogni sfumatura della propria personalità e promuove l'orgoglio di essere unici senza temere il giudizio altrui."
+        },
+        {
+            title: "Unione e Amore",
+            category: "Cooperazione",
+            tag: "tag-red",
+            img: "https://github.com/ZofiaZ14/THE-OPEN-BOOK/blob/main/IMG_8102.jpg?raw=true",
+            desc: "La stretta di mano che forma un cuore suggerisce che l'intesa e la cooperazione non sono solo atti formali, ma nascono da un profondo sentimento di empatia e amore universale."
         },
         {
             title: "Simbolo della Pace",
-            category: "Valori Universali",
+            category: "Valori",
             tag: "tag-green",
             img: "https://github.com/ZofiaZ14/THE-OPEN-BOOK/blob/main/IMG_8100.jpg?raw=true",
-            desc: "Un richiamo alla giustizia sociale e alla risoluzione pacifica dei conflitti. Questo simbolo ricorda che la cultura e l'arte devono tendere alla costruzione di un futuro sicuro, solidale e armonioso."
+            desc: "Rappresenta l'aspirazione universale alla non violenza e alla convivenza armoniosa. Un invito a risolvere i conflitti attraverso il dialogo e il rispetto delle differenze."
         }
     ];
 
